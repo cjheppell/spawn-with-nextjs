@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+The code contained within this repository was created by following the excellent blog post [Create a Next.js App with a MySQL Database That Builds and Deploys with Vercel](https://vercel.com/guides/deploying-next-and-mysql-with-vercel). Some tweaks were made whilst following along.
+
+The application requires a connection to a MySQL database. To enable this in development, we use [Spawn](https://spawn.cc) to instantly provision a development environment without needing to install or set up a database instance anywhere.
+
 ## Getting Started
 
 First, run the development server:
@@ -10,21 +14,6 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will provision a database through [Spawn](https://spawn.cc) and update the `.env.local` file with the connection details of the provisioned database. This will then be used by NextJS when an API request requires data.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Once complete, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
