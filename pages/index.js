@@ -1,6 +1,9 @@
 import Link from 'next/link'
 
-function HomePage({ profiles, page, pageCount }) {
+function HomePage({ profiles, error, page, pageCount }) {
+  if(error){
+    return <div>Error: {error}</div>
+  }
   return (
     <>
       <ul>
@@ -40,9 +43,17 @@ export async function getServerSideProps({ req, query }) {
   const res = await fetch(
     `${protocol}://${host}/api/profiles?page=${page}&limit=${limit}`
   )
-  const data = await res.json()
+  
+  try {
+    const data = await res.json()
+    return { props: { ...data, error: null } }
+  } catch (error) {
+    return { props: {
+      profiles: [],
+      error: 'Unable to retrieve profiles'
+    } }
+  }
 
-  return { props: data }
 }
 
 export default HomePage
