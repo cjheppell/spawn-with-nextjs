@@ -1,0 +1,8 @@
+name: dev-mysql-nextjs
+sourceType: scripts
+scriptsFolders:
+  - ./database/sql
+engine: mysql
+initialDatabaseName: nextjs
+tags:
+  - dev
