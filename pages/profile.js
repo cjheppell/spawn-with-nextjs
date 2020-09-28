@@ -7,7 +7,7 @@ function ProfilePage({ error, profile }) {
   return (
     <>
       <div>
-        <img src={profile.avatar} />
+        <img src={`https://github.com/${profile.avatar}.png`} />
         <h1>{profile.name}</h1>
         <p>{profile.address}</p>
         <p>{profile.email}</p>

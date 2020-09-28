@@ -6,12 +6,12 @@ function HomePage({ profiles, error, page, pageCount }) {
   }
   return (
     <>
+      <h1>Profiles</h1>
       <ul>
         {profiles.map((p) => (
           <li className="profile" key={p.id}>
             <Link href={`/profile?id=${p.id}`}>
               <a>
-                <img src={p.avatar} />
                 <span>{p.name}</span>
               </a>
             </Link>
